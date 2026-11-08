@@ -32,3 +32,5 @@
 # Local AI assistant configurations
 .agents/
 .claude/
+AGENTS.md
+CLAUDE.md
