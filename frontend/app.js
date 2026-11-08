@@ -277,7 +277,7 @@ const petImage = document.getElementById("displayPetImage");
 if (pet.type === "Cat") {
     petImage.src = "images/котя.jpg";
 } else {
-    petImage.src = "images/шабака.jpg";
+    petImage.src = "images/шабака.png";
 }
 
 petImage.alt = pet.name;
@@ -341,17 +341,33 @@ function showVaccinations(petId) {
 }
 function generatePetQR(petId) {
     const container = document.getElementById("petQRCode");
-    container.innerHTML = "";
+
+    if (!container) {
+        console.error("QR container not found");
+        return;
+    }
+
+    container.replaceChildren();
+
+    if (typeof QRCode === "undefined") {
+        console.error("QRCode library not loaded");
+        return;
+    }
 
     const url = new URL(window.location.href);
-    url.hash = "passport";
     url.searchParams.set("petId", petId);
+    url.hash = "passport";
 
     new QRCode(container, {
         text: url.toString(),
-        width: 160,
-        height: 160,
+        width: 220,
+        height: 220,
         colorDark: "#252944",
         colorLight: "#ffffff"
     });
 }
+// Generate QR for default Buddy passport
+document.addEventListener("DOMContentLoaded", function () {
+    generatePetQR(1);
+});
+generatePetQR(1);

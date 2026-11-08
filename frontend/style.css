@@ -354,3 +354,46 @@ footer {
     border-color: #6554d9;
     outline: none;
 }
+/* Bigger pet photo */
+.pet-avatar {
+    width: 240px;
+    height: 240px;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.pet-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Wider passport */
+.passport-card {
+    max-width: 950px;
+}
+
+.pet-profile {
+    gap: 35px;
+}
+
+@media (max-width: 700px) {
+    .pet-avatar {
+        width: 150px;
+        height: 150px;
+    }
+}
+#petQRCode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 220px;
+    margin: 25px auto;
+}
+
+#petQRCode img,
+#petQRCode canvas {
+    width: 220px;
+    height: 220px;
+}
